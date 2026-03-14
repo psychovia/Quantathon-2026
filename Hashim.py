@@ -1,3 +1,4 @@
+import random
 def estimate_parameters(possible_A_seqs, possible_Y_seqs, s1, s2, s3, s4):
     target_S = (s1, s2, s3, s4)
     models = [(0,0), (0,1), (1,0), (1,1)]
@@ -32,10 +33,14 @@ def estimate_parameters(possible_A_seqs, possible_Y_seqs, s1, s2, s3, s4):
         likelihoods[(alpha, sigma)] = valid_num/total_combs
 
     
+    
     max_prob = max(likelihoods.values())
 
     best_models = [model for model, p in likelihoods.items() if p == max_prob]
 
-    return best_models, max_prob
+    rand = len(best_models)
+    rand_best_model = best_models[random.randint(0,len(best_models - 1))]
+
+    return rand_best_model, max_prob
 
 
