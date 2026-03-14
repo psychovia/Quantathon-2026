@@ -1,7 +1,6 @@
 import itertools
-import estimate_parameters from Hashim
-import generate_sequences, generate_A_sequence, generate_Y_sequence from Tabris
-
+from Tabris import generate_sequences, generate_A_sequence, generate_Y_sequence 
+from Hashim import estimate_parameters
 
 def main(S):
     A, Y = generate_sequences(S)
@@ -10,6 +9,6 @@ def main(S):
     s3 = S[2]
     s4 = S[3]
 
-    x, y = estimate_parameters(A, Y, s1, s1, s3, s4)
+    rand_best_model, max_prob = estimate_parameters(A, Y, s1, s1, s3, s4)
 
-    return
+    return rand_best_model, max_prob
